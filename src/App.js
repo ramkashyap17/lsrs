@@ -4,6 +4,8 @@ import './App.css';
 function App() {
   var arr = [3, 1, 4, 2, 9]
   var diff = []
+  var lsArr = []
+  var rsArr = []
 
   for(var i = 0; i < arr.length; i++){
     var input = arr[i]
@@ -15,9 +17,12 @@ function App() {
       ls += arr[j]
     }
 
-    for(var j = i; j < arr.length; j++){
+    for(var j = i+1; j < arr.length; j++){
       rs += arr[j]
     }
+    
+    lsArr.push(ls)
+    rsArr.push(rs)
 
     diff.push(rs - ls)
   }
@@ -37,6 +42,12 @@ function App() {
         <p>
           {"This is the result: " + min}
         </p>
+        <p>
+          {"This is LS: " + lsArr.join(',')}
+        </p>
+        <p>
+          {"This is RS: " + rsArr.join(',')}
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -51,4 +62,5 @@ function App() {
 }
 
 export default App;
+
 
